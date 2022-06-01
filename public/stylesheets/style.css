@@ -1,6 +1,142 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #b5bec8;
+  height: 100%;
+}
+
+header {
+  background: #f1f5f8;
+  padding: 20px;
+  border-top: 50px solid #343b56;
+  box-sizing: content-box;
+  justify-content: right;
+}
+
+.flex {
+  display: flex;
+}
+
+button {
+  cursor: pointer;
+}
+
+#content_wrapper {
+  display: flex;
+}
+
+#index_wrapper {
+  background-color: white;
+  max-width: 500px;
+  margin: auto;
+  margin-top: 50px;
+  border-radius: 3px;
+  padding: 40px;
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+#preview {
+  background: white;
+  border-radius: 20px;
+  margin: 11px;
+  height: 100vh;
+  max-width: 368px;
+  min-width: 197px;
+  border: 1px solid black;
+}
+
+.preview_item {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid gray;
+}
+
+.preview_item p {
+  display: inline-block;
+  margin-right: 10px;
+
+}
+
+.time_stamp {
+  color: grey;
+  font-weight: bold;
+}
+
+#endpoint_wrapper {
+  background: white;
+  flex-grow: 1;
+  border-radius: 20px;
+  margin: 11px;
+  border: 1px solid black;
+  padding: 30px;
+}
+
+.endpoint_address {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+#end_point_field {
+  padding: 10px;
+}
+
+#end_point_field p {
+  display:inline-block;
+}
+
+#request_info {
+  /* display: none; */
+  border: 1px solid black;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #f1f5f8;
+}
+
+#request_heading {
+  display: flex;
+  padding-bottom: 10px;
+  border-bottom: 2px solid gray;
+  justify-content: space-between;
+}
+
+.request_field {
+  margin: 10px;
+  border-bottom: 1px solid black;
+}
+
+.request_field p, dt, dd {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.field_name {
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+td {
+  padding-right: 50px;
+}
+
+td.key {
+  color: #23ae0f;
+}
+
+.nav_action {
+  border: none;
+  padding: 10px;
+  background: #505f86;
+  margin-right: 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+.frame {
+  border: 1px solid black;
+  padding: 10px;
 }
 
 a {
