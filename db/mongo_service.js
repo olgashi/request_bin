@@ -2,7 +2,8 @@ const { MongoClient } = require('mongodb');
 const url = 'mongodb://localhost:27017';
 const client = new MongoClient(url);
 
-// request is a regular javascript object. Returns a promise that resolves to a javascript object like { acknowledged: true, insertedId: 3 } or an error
+// request is a regular javascript object. 
+// Returns a promise that resolves to a javascript object like { acknowledged: true, insertedId: 3 } or an error
 async function addRequest(request, reqId, dbName = "requestBin") {
   try {
     await client.connect();
