@@ -17,7 +17,26 @@ async function main() {
   return 'done.';
 }
 
-main()
-  .then(console.log)
-  .catch(console.error)
-  .finally(() => client.close());
+async function addRequest(request, reqId, dbName = "requestBin") {
+  await client.connect();
+  const db = client.db(dbName);
+  const collection = db.collection('requests');
+  request._id = reqId
+  const inserted = await collection.insertOne(request);
+  client.close()
+  return inserted
+}
+
+async function findRequest(reqId, dbName = "requestBin") {
+  await client.connect()
+  const db = client.db(dbName);
+  const collection = db.collection('requests');
+  const found = await collection.findOne({_id: reqId})
+  client.close()
+  return found
+}
+
+// main()
+//   .then(console.log)
+//   .catch(console.error)
+//   .finally(() => client.close());
