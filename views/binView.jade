@@ -1,0 +1,78 @@
+extends layout
+
+// {data: [{request_id method: "GET", time_stamp: "8:00am", path: "/"}]} (data passed to the template)
+
+//block preview (templating once backend can send expexted data)
+  section#preview
+    ul.preview_list
+      for req in data
+        li.preview_item(data-id=#{req.request_id})
+          p.time_stamp #{req.time}
+          p.method #{req.method}
+          p.path #{req.path}
+
+
+block content
+  header.flex
+    #end_point_field
+      p.nav_action Endpoint
+      p.frame https://example.com/en5jecn8cmyxu
+      button.nav_action.copy copy
+      button.nav_action.new new
+  #content_wrapper
+    section#preview
+      ul.preview_list 
+        li.preview_item
+          p.time_stamp 6:00am
+          p.method GET
+          p.path /
+        li.preview_item 
+          p.time_stamp 9:00pm
+          p.method PUT
+          p.path /api/docs
+
+    section#endpoint_wrapper
+      #request_info
+        #request_heading
+          h2 HTTP REQUEST
+          p#request_id 29xGbtEsMwwLctRozTXeWaRDrNE
+          p#request_date 2022-06-01T01:36:38.970Z
+        ul#request_fields
+          li.request_field#details
+            p.field_name Details
+            p#method PUT
+            p#path /?user=admin
+          li.request_field
+            p.field_name Headers
+              table#headers
+                thead
+                tbody
+                  tr
+                    td.key host
+                    td en5jecn8cmyxu.x.pipedream.net
+                  tr
+                    td.key x-amzn-trace-id
+                    td Root=1-6296e6cc-483693534f9d3ccf5ba3b579
+          li.request_field#query
+            p.field_name Query
+                table#queries
+                  thead
+                  tbody
+                    tr
+                      td.key user
+                      td admin
+                    tr
+                      td.key age
+                      td 23
+  
+          li.request_field#body
+            p.field_name Body
+            #contents {"message": "hello world"}
+
+
+      #endpoint_info
+        h1 Your endpoint is:
+        p.endpoint_address https://example.com/en5jecn8cmyxu
+        button.btn.copy copy address
+  
+
