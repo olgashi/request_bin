@@ -1,9 +1,9 @@
 const express = require('express');
 const { all } = require('.');
 const router = express.Router();
-const { guid } = require('../lib/utils/guid');
-const { addRequest } = require('lib\db-mongo\mongo_service.js');
-const { createRequest } = require('lib\db-pg\requests-query.js'); // Sig: createRequest(reqId, binId, method, reqPath)
+const { guid } = require('../lib/utils/guid.js');
+const { addRequest } = require('../lib/db-mongo/mongo_service.js');
+const { createRequest } = require('../lib/db-pg/requests-query.js'); // Sig: createRequest(reqId, binId, method, reqPath)
 
 /* Submit HTTP request to endpoint */
 router.route('/*')

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { findRequest } = require('lib\db-mongo\mongo_service.js');
-const { getRequestsByBinID } = require('lib\db-pg\requests-query.js');
+const { findRequest } = require('../lib/db-mongo/mongo_service.js');
+const { getRequestsByBinID } = require('../lib/db-pg/requests-query.js');
 
 /* GET bin view */
 router.get('/:binID', function(req, res, next) {
