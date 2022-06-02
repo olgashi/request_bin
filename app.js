@@ -8,6 +8,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const binRouter = require('./routes/binView');
 const endpointRouter = require('./routes/endpoint');
+const createBinRouter = require('./routes/createBin');
 
 const app = express();
 
@@ -21,8 +22,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// app.use('/', indexRouter);
+// app.use('/users', usersRouter);
+app.use('/', createBinRouter)
 app.use('/view_bin', binRouter);
 app.use('/endpoint', endpointRouter);
 
