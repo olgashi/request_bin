@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const cors = require('cors')
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -11,6 +12,8 @@ const endpointRouter = require('./routes/endpoint');
 const createBinRouter = require('./routes/createBin');
 
 const app = express();
+app.use(cors())
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -24,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', indexRouter);
 // app.use('/users', usersRouter);
-app.use('/', createBinRouter)
+app.use('/', createBinRouter) // {bindId: }
 app.use('/view_bin', binRouter);
 app.use('/endpoint', endpointRouter);
 

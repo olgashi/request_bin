@@ -5,13 +5,17 @@ const { createBin } = require('../lib/db-pg/requestBins-query.js');
 const { getRequestsByBinId } = require('../lib/db-pg/requests-query.js');
 
 /* Create bin and GET bin view. */
-router.get('/', function(req, res, next) {
+router.post('/', async function(req, res, next) {
   let binID = guid(7);
 
-  createBin(binID);          // Create bin table in postgres
-  getRequestsByBinId(binID); // get bin data from postgres
-  
-  // call to front end and diplay bin data
+  const result = await createBin(binID);  // Create bin table in postgres
+
+  if (result.rowCount === 1) {
+    res.status(200).send({binId: binID})
+  } else {
+    res.status(400).send({msg: 'error'})
+  }
+
 });
 
 module.exports = router;
