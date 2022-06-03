@@ -21,8 +21,9 @@ router.route('/:binId')
         body: req.body,
       }
     }
+    const fullRequestPath = req.path + req.query;
     addRequest(reqRec); // add request data to MongoDB
-    createRequest(reqID, binId, req.method, req.path); // add request data to postgres
+    createRequest(reqID, binId, req.method, fullRequestPath); // add request data to postgres
     res.status(200).send({"success": true, reqId: reqID});
   })
 
