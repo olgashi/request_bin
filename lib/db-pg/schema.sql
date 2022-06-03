@@ -6,7 +6,7 @@ CREATE TABLE requestBins (
 
 CREATE TABLE requests (
   id serial PRIMARY KEY,
-  request_id char(10),
+  request_id char(27),
   bin_id char(7)
     NOT NULL
     REFERENCES requestBins(bin_id),
